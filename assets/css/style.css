@@ -47,23 +47,9 @@ body {
 .status-review { border-color: #3b82f6; color: #3b82f6; }
 .status-published { border-color: #10b981; color: #10b981; }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.animate-infinite-scroll {
-    animation: scroll 30s linear infinite;
+#carousel-track {
     width: max-content;
-}
-
-/* Pausa la animación cuando el usuario interactúa con los logos */
-.animate-infinite-scroll:hover {
-    animation-play-state: paused;
+    display: flex;
 }
 
 /* Efecto de difuminado degradado en los extremos laterales */

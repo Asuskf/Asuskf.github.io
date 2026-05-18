@@ -55,3 +55,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("carousel-track");
+    if (!track) return;
+
+    // 1. Clonar los logos dinámicamente para crear el bucle infinito perfecto
+    const originalItems = Array.from(track.children);
+    originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
+
+    // 2. Configuración de la animación
+    let speed = 1; // Velocidad en píxeles por cuadro (puedes usar decimales como 0.5 para ir más lento)
+    let scrollAmount = 0;
+    let isPaused = false;
+
+    function animateCarousel() {
+        if (!isPaused) {
+            scrollAmount += speed;
+
+            // Al llegar exactamente a la mitad del ancho total (el grupo original), reiniciamos a 0
+            const halfWidth = track.scrollWidth / 2;
+            if (scrollAmount >= halfWidth) {
+                scrollAmount = 0;
+            }
+
+            track.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+        // Solicita el siguiente cuadro de animación nativo del navegador (60fps+)
+        requestAnimationFrame(animateCarousel);
+    }
+
+    // 3. Controladores de eventos para pausar al pasar el mouse
+    track.addEventListener("mouseenter", () => isPaused = true);
+    track.addEventListener("mouseleave", () => isPaused = false);
+
+    // 4. Iniciar la animación asegurando que las imágenes ya cargaron su tamaño real
+    if (document.readyState === "complete") {
+        animateCarousel();
+    } else {
+        window.addEventListener("load", animateCarousel);
+    }
+});
