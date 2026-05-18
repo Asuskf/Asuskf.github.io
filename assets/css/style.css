@@ -57,3 +57,30 @@ body {
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
+
+#carousel-track {
+    width: max-content;
+    display: flex;
+    /* Usa la variable de JS; si no existe por algún motivo, cae en un -50% por defecto */
+    animation: hardware-scroll 25s linear infinite;
+}
+
+/* Pausa fluida al pasar el cursor */
+#carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes hardware-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se desplaza exactamente los píxeles calculados por JS */
+        transform: translateX(var(--scroll-distance, -50%));
+    }
+}
+
+.mask-edges {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}

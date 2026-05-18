@@ -60,42 +60,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("carousel-track");
     if (!track) return;
 
-    // 1. Clonar los logos dinámicamente para crear el bucle infinito perfecto
+    // 1. Clonamos el grupo original de logos
     const originalItems = Array.from(track.children);
     originalItems.forEach(item => {
         const clone = item.cloneNode(true);
         track.appendChild(clone);
     });
 
-    // 2. Configuración de la animación
-    let speed = 1; // Velocidad en píxeles por cuadro (puedes usar decimales como 0.5 para ir más lento)
-    let scrollAmount = 0;
-    let isPaused = false;
-
-    function animateCarousel() {
-        if (!isPaused) {
-            scrollAmount += speed;
-
-            // Al llegar exactamente a la mitad del ancho total (el grupo original), reiniciamos a 0
-            const halfWidth = track.scrollWidth / 2;
-            if (scrollAmount >= halfWidth) {
-                scrollAmount = 0;
-            }
-
-            track.style.transform = `translateX(-${scrollAmount}px)`;
+    // 2. Calculamos la distancia exacta hasta el primer clon (píxel perfecto)
+    function calculateDistance() {
+        const firstClone = track.children[originalItems.length];
+        if (firstClone) {
+            // offsetLeft nos da la posición exacta donde inicia el segundo bloque de logos
+            const distance = firstClone.offsetLeft;
+            track.style.setProperty('--scroll-distance', `-${distance}px`);
         }
-        // Solicita el siguiente cuadro de animación nativo del navegador (60fps+)
-        requestAnimationFrame(animateCarousel);
     }
 
-    // 3. Controladores de eventos para pausar al pasar el mouse
-    track.addEventListener("mouseenter", () => isPaused = true);
-    track.addEventListener("mouseleave", () => isPaused = false);
-
-    // 4. Iniciar la animación asegurando que las imágenes ya cargaron su tamaño real
+    // 3. Nos aseguramos de medir cuando las imágenes ya tengan su tamaño real en pantalla
     if (document.readyState === "complete") {
-        animateCarousel();
+        calculateDistance();
     } else {
-        window.addEventListener("load", animateCarousel);
+        window.addEventListener("load", calculateDistance);
     }
+
+    // Recalcular si el usuario rota la pantalla o cambia el tamaño de la ventana
+    window.addEventListener("resize", calculateDistance);
 });
