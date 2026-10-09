@@ -1,0 +1,31 @@
+# ASUSKF (Kevin David Farinango Cinilin)
+
+> Personal site of Kevin David Farinango Cinilin, known online as ASUSKF: Senior Data Scientist and PhD researcher specializing in Generative AI, Large Language Models (LLMs), scalable MLOps, Graph Neural Networks and Knowledge Graphs. He helps organizations optimize cloud AI infrastructure and drive high-impact decisions, achieving up to 99.8% reduction in AI operational costs. Open for B2B projects, corporate training, master classes and tech talks (Spanish and English).
+
+## Pages
+- [Home (English)](https://asuskf.github.io/): profile, projects, papers, talks, contact
+- [Inicio (Español)](https://asuskf.github.io/index_es.html): same content in Spanish
+- [CV (PDF)](https://asuskf.github.io/assets/files/pdf/CV_Kevin_Farinango.pdf)
+
+## Projects
+- [ASUSKF Investing AI](https://www.etoro.com/people/asuskf): autonomous decision-making engine managing the public @Asuskf portfolio, using LLMs for real-time sentiment analysis and technical signals.
+- [Gector Evolution](https://github.com/Asuskf/gector-improved-training): fork of the Gector architecture for high-performance text cleaning and grammatical error correction, with modernized libraries and an optimized training pipeline.
+
+## Scientific papers
+- [Graphs Oriented to Stock Market Analysis](https://revistarimi.net/index.php/home/article/view/290/296) (published)
+- [Similarity Search in Diabetes Data (BRFSS) with biomedical embeddings and Annoy trees](https://cgscholar.com/publishers/articles/busqueda-de-similitud-en-datos-de-diabetes-derivados-del-brfss-un-sistema-de-encuestas-de-salud-poblacional-mediante-embeddings-biomedicos-de-codigo-abierto-y-arboles-annoy) (published)
+- [Efficient Similarity Search with HNSW](https://revista.uisrael.edu.ec/index.php/ro/article/download/1830/1634/11322) (published)
+- Graph-Oriented Approaches for Healthcare Fraud Detection (under review)
+
+## Talks (in Spanish)
+- [Data Governance (DAMA)](https://www.youtube.com/watch?v=kipXVu0CRuk): frameworks for effective governance and DataOps integration
+- [Bayesian Statistics & ML](https://www.youtube.com/watch?v=UxYg0ira1g8): probabilistic forecasting models for complex marketing data
+- [Macroeconomics in Python](https://www.youtube.com/watch?v=4t4wF3FtIyQ): automating financial analysis and GDP modeling
+
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/david-farinango/)
+- [GitHub](https://github.com/Asuskf)
+- [ASUSKF Tech showcase](https://www.linkedin.com/showcase/asuskf/), [ASUSKF Salud (Health AI)](https://www.linkedin.com/showcase/asuskf-salud/), [ASUSKF Investing](https://www.linkedin.com/showcase/asuskf-investing/)
+
+## Companies that have trusted his work
+Nodel, PrediQt, iData, Finerio, InfinitusMind, Kin Analytics

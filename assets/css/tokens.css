@@ -1,0 +1,225 @@
+/* ==========================================================================
+   ASUSKF — Design tokens (color + type + spacing + radius + motion)
+   Fuente única de verdad. Todo output de marca usa var(--ax-…) — nunca hex
+   literal fuera de este archivo.
+   Origen: asuskf.github.io (Tailwind slate/violet/blue/emerald) + logo asuskf.png.
+   Dark es el tema por defecto (la marca nace oscura). Light es de primera clase.
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ---- Primitivos: Slate (base neutra) ---------------------------------- */
+  --ax-slate-950: #020617;  /* Void        — fondo de página */
+  --ax-slate-900: #0F172A;  /* Deep Slate  — superficie / tarjetas */
+  --ax-slate-800: #1E293B;  /* Graphite    — superficie elevada, inputs, chips */
+  --ax-slate-700: #334155;  /* Wire        — bordes de inputs, divisores */
+  --ax-slate-500: #64748B;  /* Fog         — SOLO >=18px o no-texto (4.24:1) */
+  --ax-slate-400: #94A3B8;  /* Mist        — texto secundario (7.87:1) */
+  --ax-slate-200: #E2E8F0;  /* Frost       — énfasis dentro de párrafos */
+  --ax-slate-100: #F1F5F9;  /* Snow        — texto principal (18.41:1) */
+  --ax-slate-50:  #F8FAFC;
+  --ax-white:     #FFFFFF;
+
+  /* ---- Primitivos: Espectro ASUSKF (acentos) ---------------------------- */
+  --ax-violet-400:  #A78BFA; /* Mind Violet (claro) — texto acento en dark */
+  --ax-violet-500:  #8B5CF6; /* Mind Violet — color de marca, hover/focus */
+  --ax-violet-600:  #7C3AED; /* Fill de CTA (blanco encima 5.70:1) */
+  --ax-violet-700:  #6D28D9; /* Acento sobre light */
+  --ax-indigo-600:  #4F46E5; /* Hero CTA (blanco encima 6.29:1) */
+  --ax-indigo-500:  #6366F1;
+  --ax-blue-400:    #60A5FA; /* Signal Blue (claro) — enlaces en dark */
+  --ax-blue-500:    #3B82F6; /* Signal Blue */
+  --ax-blue-700:    #1D4ED8;
+  --ax-emerald-400: #34D399; /* Growth Emerald — cursor "_", numerales, "live" */
+  --ax-emerald-500: #10B981;
+  --ax-emerald-700: #047857;
+  --ax-amber-500:   #F59E0B; /* Estado "en redacción" */
+  --ax-amber-700:   #B45309;
+  --ax-orange-500:  #F97316; /* Estado "review" (paper) */
+  --ax-red-400:     #F87171; /* Negativo / error en dark (7.0:1) */
+  --ax-red-700:     #B91C1C; /* Negativo / error en light */
+
+  /* ---- Primitivos: Logo (cubo-hexágono con nodos) ----------------------- */
+  --ax-logo-indigo: #1D154C; /* esquina superior-izquierda del degradado del logo */
+  --ax-logo-navy:   #1B376D;
+  --ax-logo-ocean:  #0E4E79; /* esquina inferior-derecha */
+  --ax-logo-ice:    #9BB8D3; /* cara de vidrio del hexágono + nodos */
+
+  /* ---- Sub-marcas -------------------------------------------------------- */
+  --ax-invest-forest: #053C25; /* ASUSKF Investing — fondo */
+  --ax-invest-moss:   #375235;
+  --ax-invest-gold:   #C9B97A; /* oro del emblema (10.28:1 sobre Void) */
+  --ax-health-navy:   #133250; /* ASUSKF Salud — fondo */
+  --ax-health-teal:   #377776;
+  --ax-health-sky:    #699DB3;
+
+  /* ---- Terceros (solo en sus botones oficiales, nunca como marca) ------- */
+  --ax-ext-linkedin:  #0A66C2;
+  --ax-ext-linkedin-hover: #004182;
+  --ax-ext-whatsapp:  #25D366;
+  --ax-ext-etoro:     #6FC82A;
+
+  /* ---- Semánticos (dark) ------------------------------------------------ */
+  --ax-color-bg:            var(--ax-slate-950);
+  --ax-color-surface:       var(--ax-slate-900);
+  --ax-color-surface-2:     var(--ax-slate-800);
+  --ax-color-surface-glass: rgb(15 23 42 / 0.5);   /* slate-900/50 */
+  --ax-color-nav-glass:     rgb(2 6 23 / 0.5);     /* slate-950/50 + blur */
+  --ax-color-border:        rgb(255 255 255 / 0.05);
+  --ax-color-border-strong: rgb(255 255 255 / 0.10);
+  --ax-color-border-input:  var(--ax-slate-700);
+
+  --ax-color-text:          var(--ax-slate-100);
+  --ax-color-text-strong:   var(--ax-slate-200);
+  --ax-color-text-secondary:var(--ax-slate-400);
+  --ax-color-text-muted:    var(--ax-slate-500); /* solo texto grande */
+  --ax-color-text-on-accent:var(--ax-white);
+
+  --ax-color-accent:        var(--ax-violet-500);
+  --ax-color-accent-text:   var(--ax-violet-400);
+  --ax-color-action:        var(--ax-violet-600);
+  --ax-color-action-hover:  var(--ax-violet-500);
+  --ax-color-action-hero:   var(--ax-indigo-600);
+  --ax-color-action-hero-hover: var(--ax-indigo-500);
+  --ax-color-link:          var(--ax-blue-400);
+  --ax-color-signal:        var(--ax-emerald-400);
+  --ax-color-focus:         var(--ax-violet-500);
+
+  --ax-color-status-writing:   var(--ax-amber-500);
+  --ax-color-status-review:    var(--ax-orange-500);
+  --ax-color-status-published: var(--ax-emerald-400);
+  --ax-color-positive:  var(--ax-emerald-400);
+  --ax-color-negative:  var(--ax-red-400);
+
+  /* El "Infinitus spectrum": UN uso por vista (titular o hexágono hero) */
+  --ax-gradient-spectrum: linear-gradient(to right, var(--ax-violet-400), var(--ax-blue-400), var(--ax-emerald-400));
+  --ax-gradient-hero:     linear-gradient(to right, var(--ax-violet-400), var(--ax-emerald-400));
+  --ax-gradient-hex:      linear-gradient(135deg, var(--ax-violet-500), var(--ax-blue-500));
+  --ax-gradient-logo:     linear-gradient(135deg, var(--ax-logo-indigo), var(--ax-logo-navy) 50%, var(--ax-logo-ocean));
+
+  --ax-shadow-glow-violet:  0 10px 30px -10px rgb(139 92 246 / 0.30);
+  --ax-shadow-glow-indigo:  0 10px 15px -3px rgb(99 102 241 / 0.20);
+  --ax-shadow-glow-emerald: 0 0 15px rgb(52 211 153 / 0.10);
+  --ax-shadow-card:         0 25px 50px -12px rgb(88 28 135 / 0.20);
+}
+
+/* ---- Light (derivado; acentos oscurecidos para AA) ----------------------- */
+[data-theme="light"] {
+  color-scheme: light;
+  --ax-color-bg:            var(--ax-slate-50);
+  --ax-color-surface:       var(--ax-white);
+  --ax-color-surface-2:     #F1F5F9;
+  --ax-color-surface-glass: rgb(255 255 255 / 0.7);
+  --ax-color-nav-glass:     rgb(248 250 252 / 0.7);
+  --ax-color-border:        rgb(15 23 42 / 0.08);
+  --ax-color-border-strong: rgb(15 23 42 / 0.14);
+  --ax-color-border-input:  #CBD5E1;
+
+  --ax-color-text:          var(--ax-slate-900);
+  --ax-color-text-strong:   var(--ax-slate-950);
+  --ax-color-text-secondary:#475569;              /* 7.24:1 */
+  --ax-color-text-muted:    var(--ax-slate-500);  /* 4.55:1 */
+
+  --ax-color-accent:        var(--ax-violet-600);
+  --ax-color-accent-text:   var(--ax-violet-700); /* 6.79:1 */
+  --ax-color-link:          var(--ax-blue-700);   /* 6.41:1 */
+  --ax-color-signal:        var(--ax-emerald-700);/* 5.24:1 */
+  --ax-color-status-writing:   var(--ax-amber-700);
+  --ax-color-status-review:    #C2410C;
+  --ax-color-status-published: var(--ax-emerald-700);
+  --ax-color-positive:  var(--ax-emerald-700);
+  --ax-color-negative:  var(--ax-red-700);
+
+  --ax-gradient-spectrum: linear-gradient(to right, var(--ax-violet-700), var(--ax-blue-700), var(--ax-emerald-700));
+  --ax-gradient-hero:     linear-gradient(to right, var(--ax-violet-700), var(--ax-emerald-700));
+  --ax-shadow-card:       0 20px 40px -16px rgb(15 23 42 / 0.15);
+}
+
+/* ---- Tipografía ---------------------------------------------------------- */
+:root {
+  --ax-font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; /* display + cuerpo */
+  --ax-font-mono: 'Fira Code', ui-monospace, monospace;                     /* firma técnica */
+
+  --ax-weight-light: 300;
+  --ax-weight-regular: 400;
+  --ax-weight-medium: 500;
+  --ax-weight-semibold: 600;
+  --ax-weight-bold: 700;
+  --ax-weight-extrabold: 800;
+
+  /* Escala (rem = 16px) — espejo de Tailwind usado en el sitio */
+  --ax-text-2xs: 0.625rem;  /* 10px — solo badges en MAYÚSCULAS con tracking */
+  --ax-text-xs:  0.75rem;   /* 12px */
+  --ax-text-sm:  0.875rem;  /* 14px */
+  --ax-text-base:1rem;      /* 16px */
+  --ax-text-lg:  1.125rem;  /* 18px */
+  --ax-text-xl:  1.25rem;   /* 20px */
+  --ax-text-2xl: 1.5rem;    /* 24px */
+  --ax-text-3xl: 1.875rem;  /* 30px */
+  --ax-text-4xl: 2.25rem;   /* 36px */
+  --ax-text-5xl: 3rem;      /* 48px */
+  --ax-text-8xl: 6rem;      /* 96px — hero desktop */
+  --ax-text-hero: clamp(var(--ax-text-5xl), 9vw, var(--ax-text-8xl));
+
+  --ax-leading-tight: 1.1;
+  --ax-leading-snug: 1.3;
+  --ax-leading-body: 1.625;
+  --ax-tracking-tighter: -0.05em;
+  --ax-tracking-tight: -0.025em;
+  --ax-tracking-widest: 0.1em;
+
+  /* Espaciado (múltiplos de 4px) */
+  --ax-space-1: 0.25rem; --ax-space-2: 0.5rem;  --ax-space-3: 0.75rem;
+  --ax-space-4: 1rem;    --ax-space-5: 1.25rem; --ax-space-6: 1.5rem;
+  --ax-space-8: 2rem;    --ax-space-10: 2.5rem; --ax-space-12: 3rem;
+  --ax-space-16: 4rem;   --ax-space-20: 5rem;   --ax-space-32: 8rem;
+
+  /* Radios */
+  --ax-radius-sm: 0.25rem;   /* badges de paper */
+  --ax-radius-md: 0.5rem;    /* inputs, logo nav */
+  --ax-radius-lg: 0.75rem;   /* botones, filas de paper */
+  --ax-radius-xl: 1rem;      /* tarjetas compactas, avatares */
+  --ax-radius-2xl: 1.5rem;   /* tarjetas grandes / paneles */
+  --ax-radius-pill: 9999px;  /* chips, toggles, CTA de terceros */
+
+  /* Movimiento */
+  --ax-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ax-dur-fast: 150ms;
+  --ax-dur: 300ms;
+  --ax-dur-slow: 500ms;
+  --ax-dur-reveal: 1000ms;
+  --ax-blur-glass: 16px;
+  --ax-hover-lift: -5px;
+
+  --ax-touch-min: 44px;
+  --ax-container: 80rem;     /* max-w-7xl */
+  --ax-container-text: 64rem;/* max-w-5xl */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ax-dur-fast: 0ms; --ax-dur: 0ms; --ax-dur-slow: 0ms; --ax-dur-reveal: 0ms; --ax-hover-lift: 0px; }
+}
+
+/* ---- Site additions (asuskf.github.io) — tintes alfa derivados de tokens --- */
+:root {
+  --ax-tint-violet-10:  color-mix(in srgb, var(--ax-violet-500) 10%, transparent);
+  --ax-tint-violet-20:  color-mix(in srgb, var(--ax-violet-500) 20%, transparent);
+  --ax-tint-violet-30:  color-mix(in srgb, var(--ax-violet-500) 30%, transparent);
+  --ax-tint-blue-10:    color-mix(in srgb, var(--ax-blue-500) 10%, transparent);
+  --ax-tint-blue-20:    color-mix(in srgb, var(--ax-blue-500) 20%, transparent);
+  --ax-tint-emerald-10: color-mix(in srgb, var(--ax-emerald-500) 10%, transparent);
+  --ax-tint-emerald-20: color-mix(in srgb, var(--ax-emerald-500) 20%, transparent);
+  --ax-tint-emerald-50: color-mix(in srgb, var(--ax-emerald-500) 50%, transparent);
+  --ax-tint-orange-10:  color-mix(in srgb, var(--ax-orange-500) 10%, transparent);
+  --ax-tint-linkedin:   color-mix(in srgb, var(--ax-ext-linkedin) 35%, transparent);
+  --ax-tint-whatsapp-10:color-mix(in srgb, var(--ax-ext-whatsapp) 10%, transparent);
+  --ax-tint-whatsapp-20:color-mix(in srgb, var(--ax-ext-whatsapp) 20%, transparent);
+  --ax-tint-whatsapp-50:color-mix(in srgb, var(--ax-ext-whatsapp) 50%, transparent);
+  --ax-tint-etoro-50:   color-mix(in srgb, var(--ax-ext-etoro) 50%, transparent);
+  --ax-color-ext-surface: color-mix(in srgb, var(--ax-slate-950) 70%, black);
+  --ax-color-panel: linear-gradient(to right, color-mix(in srgb, var(--ax-slate-900) 80%, transparent), color-mix(in srgb, var(--ax-slate-900) 40%, transparent));
+  --ax-color-section-alt: color-mix(in srgb, var(--ax-slate-900) 30%, transparent);
+  --ax-nav-h: 5.5rem;
+}

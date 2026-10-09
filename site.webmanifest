@@ -1,0 +1,13 @@
+{
+  "name": "ASUSKF · Kevin Farinango",
+  "short_name": "ASUSKF",
+  "description": "Senior Data Scientist & AI Researcher: Generative AI, LLMs, MLOps and Knowledge Graphs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    { "src": "/assets/images/opt/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/images/opt/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
